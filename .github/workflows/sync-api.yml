@@ -1,0 +1,35 @@
+name: Sync with API
+
+# Regenerates the typed layer (src/rsflowhub/_generated, docs/ENDPOINTS.md)
+# from the live OpenAPI document and opens a pull request when the API changed.
+# The SDK already works with new endpoints without this; it adds types and docs.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -e ".[dev]"
+      - run: python scripts/generate.py https://rsflowhub.com/api/v1/openapi.json
+      - run: pytest -q && mypy
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/sync-api
+          commit-message: 'chore: sync with the RSFlowHub API'
+          title: 'chore: sync with the RSFlowHub API'
+          body: |
+            Regenerated from https://rsflowhub.com/api/v1/openapi.json by the weekly "Sync with API" workflow.
+            Review the method changes in `docs/ENDPOINTS.md`, merge, then publish a minor release.
+          delete-branch: true
