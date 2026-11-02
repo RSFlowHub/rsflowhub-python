@@ -179,10 +179,10 @@ class AiResource(Resource):
     @overload
     def grammar_fix(self, body: Mapping[str, Any], /, *, timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response: ...
     @overload
-    def image_generation(self, *, prompt: str, style: Optional[str] = ..., size: Optional[str] = ..., n: Optional[int] = ..., timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response:
+    def image_generation(self, *, prompt: str, style: Optional[str] = ..., size: Optional[str] = ..., aspect_ratio: Optional[Literal["1:1", "3:2", "2:3", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"]] = ..., n: Optional[int] = ..., timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response:
         """Image Generation
         Generate images from text prompts using advanced AI models.
-        ``POST /ai/image-generation``, from 5 credits.
+        ``POST /ai/image-generation``, from 150 credits.
         :param prompt: Max 4000 characters.
         :param style: Max 100 characters.
         :param size: Max 50 characters.
@@ -282,7 +282,7 @@ class AiResource(Resource):
     def spam_detection(self, *, text: str, content_type: Optional[str] = ..., strictness: Literal["low", "medium", "high"] = ..., detect_toxicity: bool = ..., detect_pii: bool = ..., return_sanitized: bool = ..., timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response:
         """Spam Detection
         Analyze text to determine if it is spam, promotional abuse, or malicious content.
-        ``POST /ai/spam-detection``, from 1 credit.
+        ``POST /ai/spam-detection``, from 2 credits.
         :param text: Max 5000 characters.
         :param content_type: Max 100 characters."""
     @overload
@@ -472,10 +472,10 @@ class AsyncAiResource(AsyncResource):
     @overload
     async def grammar_fix(self, body: Mapping[str, Any], /, *, timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response: ...
     @overload
-    async def image_generation(self, *, prompt: str, style: Optional[str] = ..., size: Optional[str] = ..., n: Optional[int] = ..., timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response:
+    async def image_generation(self, *, prompt: str, style: Optional[str] = ..., size: Optional[str] = ..., aspect_ratio: Optional[Literal["1:1", "3:2", "2:3", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"]] = ..., n: Optional[int] = ..., timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response:
         """Image Generation
         Generate images from text prompts using advanced AI models.
-        ``POST /ai/image-generation``, from 5 credits.
+        ``POST /ai/image-generation``, from 150 credits.
         :param prompt: Max 4000 characters.
         :param style: Max 100 characters.
         :param size: Max 50 characters.
@@ -575,7 +575,7 @@ class AsyncAiResource(AsyncResource):
     async def spam_detection(self, *, text: str, content_type: Optional[str] = ..., strictness: Literal["low", "medium", "high"] = ..., detect_toxicity: bool = ..., detect_pii: bool = ..., return_sanitized: bool = ..., timeout: Optional[float] = ..., max_retries: Optional[int] = ..., extra_headers: Optional[Mapping[str, str]] = ...) -> Response:
         """Spam Detection
         Analyze text to determine if it is spam, promotional abuse, or malicious content.
-        ``POST /ai/spam-detection``, from 1 credit.
+        ``POST /ai/spam-detection``, from 2 credits.
         :param text: Max 5000 characters.
         :param content_type: Max 100 characters."""
     @overload

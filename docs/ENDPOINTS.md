@@ -26,7 +26,7 @@ Every method exists on `RSFlowHub` and, awaitable, on `AsyncRSFlowHub`.
 | `email_workflow()` | `POST /ai/email-workflow` | Determine the most appropriate business action for an email using AI. The API analyzes the email and recommends workflow decisions such as replying, forwarding, assigning, archiving, escalating, or routing to the correct department. | from 2 |
 | `faq_match()` | `POST /ai/faq-match` | Match a search query semantically against an FAQ collection using a hybrid vector-similarity algorithm. | from 1 |
 | `grammar_fix()` | `POST /ai/grammar-fix` | Automatically correct spelling, grammar, and punctuation while optionally adjusting tone and dialect. | from 1 |
-| `image_generation()` | `POST /ai/image-generation` | Generate images from text prompts using advanced AI models. | from 5 |
+| `image_generation()` | `POST /ai/image-generation` | Generate images from text prompts using advanced AI models. | from 150 |
 | `intent_detection()` | `POST /ai/intent-detection` | Detect user intent from natural language messages for routing, support, and workflow automation. | from 1 |
 | `json_extractor()` | `POST /ai/json-extractor` | Extract structured JSON data from unstructured text based on a schema. | from 2 |
 | `pii_redaction()` | `POST /ai/pii-redaction` | Automatically detect and securely scrub Personally Identifiable Information (PII) from text. | from 1 |
@@ -36,7 +36,7 @@ Every method exists on `RSFlowHub` and, awaitable, on `AsyncRSFlowHub`.
 | `review_summary()` | `POST /ai/review-summary` | Summarize a batch of customer reviews, extracting positive/negative themes, complaints, and suggestions. | from 3 |
 | `search_query_parse()` | `POST /ai/search-query-parse` | Understand, normalize, and extract filters, exclusions, and sorting parameters from user natural-language searches. | from 3 |
 | `sentiment_analysis()` | `POST /ai/sentiment-analysis` | Analyze the emotional tone of text to identify positive, negative, neutral, or mixed sentiments. | from 1 |
-| `spam_detection()` | `POST /ai/spam-detection` | Analyze text to determine if it is spam, promotional abuse, or malicious content. | from 1 |
+| `spam_detection()` | `POST /ai/spam-detection` | Analyze text to determine if it is spam, promotional abuse, or malicious content. | from 2 |
 | `text_summarize()` | `POST /ai/text-summarize` | Condense long-form text, articles, or transcripts into configurable summaries and optionally extract structured data. | from 1 |
 | `ticket_analyze()` | `POST /ai/ticket-analyze` | Analyze sentiment, priority, urgency, intent, department routing, and recommended actions of a customer support ticket. | from 3 |
 | `ticket_reply()` | `POST /ai/ticket-reply` | Generate a professional, context-appropriate reply to a support ticket using only available details. | from 2 |
